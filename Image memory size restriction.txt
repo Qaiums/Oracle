@@ -1,0 +1,24 @@
+declare
+ cursor c is 
+ select doc_size
+ from apex_application_files -- default table name of oracle 
+ where name = :P15_RCAPPIMG_temp; --file browser item name
+ v_size number := 0;     -- NAME is column of apex_application_files
+ v_msg varchar2(100);
+begin
+
+open c; 
+fetch c into v_size; 
+close c;
+  
+if (v_size < 15360) then
+  v_msg  := 'Image must be at least 15KB!';
+  DELETE from APEX_APPLICATION_FILES WHERE name = :P15_RCAPPIMG_temp;
+  return v_msg;
+elsif (v_size > 30720) then
+  v_msg  := 'Image size cannot be more than 30kb!';
+  DELETE from APEX_APPLICATION_FILES WHERE name = :P15_RCAPPIMG_temp;
+  return v_msg;
+end if;
+
+end;
