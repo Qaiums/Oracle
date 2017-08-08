@@ -1,0 +1,66 @@
+<script>
+function readURL(input) {
+	if (input.files && input.files[0])
+	{
+	var reader=new FileReader();
+	reader.onload = function(e){
+	$('#myImg')
+	.attr('src',e.target.result);
+	};
+	reader.readAsDataURL(input.files[0]);
+	}
+}
+</script>
+
+
+<head>
+<script>
+
+function zoom(){
+	var divlClass=$('#myDiv').attr('class');
+	if (divlClass==="ex"){
+	$('#myDiv').css('cursor','zoom-in');}else
+	if ( divlClass=== "exZoom" ) {
+	$('#myDiv').css('cursor','zoom-out');}
+	}
+
+
+function my_class(){
+	var divlClass= $('#myDiv').attr('class');
+	if(divlClass=== "ex"){
+	$("#myDiv").removeClass("ex");
+	$("#myImg").removeClass("ex");
+	$("#myDiv").addClass("exZoom");
+	$("#myImg").addClass("exZoom");} else
+	if(divlClass==="exZoom"){
+	$("#myDiv").removeClass("exZoom");
+	$("#myImg").removeClass("exZoom");
+	$("#myDiv").addClass("ex");
+	$("#myImg").addClass("ex");}
+	}
+	</script>
+
+    <style>
+    .ex
+    {
+    height:120px ;
+    width:150px;
+    padding:2px ;
+    }
+    .exZoom 
+    {
+    height:1000px;
+    width:1000px;
+    padding:0px;
+    }
+
+    </style>
+    </head>
+    <div align="center">
+    <div id="myDiv" class="ex">
+    <img id="myImg" class="ex" onmouseover="zoom();" onClick="my_class(); zoom();" src="#" alt="" />
+    </div> </div>
+    
+	
+
+onchange="readURL(this);" onload="readURL(this);"
