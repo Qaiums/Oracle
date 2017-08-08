@@ -1,0 +1,78 @@
+<table>
+<td>
+<tr>test</tr>
+</td>
+<td>
+<tr>test</tr>
+</td>
+<td><tr>test</tr>
+</td>
+
+
+</table><table>
+<td>
+<tr>test</tr>
+</td>
+<td>
+<tr><div style="background-color:white;  border-top:0px #996 solid; ">
+<div style="text-align:center; height:20px; position:absolute;position: absolute; top: 10px;left: 50%; margin-left: -160px;font-size:16px;color:#6633FF; font-weight:bold;">&P1_COMPNAME.<br><font size='2' color='#6633FF'>&P1_COMPADD.</font>
+
+<div
+
+<html>
+<head>
+<script type="text/javascript">
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+var don="AM"
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+
+if (h>=12){ don="PM" }
+if (h>12) { h-=12 }
+if (h==0) { h=12 }
+
+document.getElementById('txt').innerHTML=h+":"+m+":"+s+" "+don;
+t=setTimeout('startTime()',500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<div id="txt"> </div>
+</body>
+</html>
+
+</div>
+
+</div>
+
+<br><br>
+</div></tr>
+</td>
+
+
+<td><tr></tr>
+</td>
+
+
+
+
+
+
+
+</table>
