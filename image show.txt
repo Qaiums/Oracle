@@ -1,0 +1,12 @@
+select EMPLOYEEID,
+       EMPLOYEENAME,
+       EMAIL,
+       MOBILE,
+       DEPARTMENTID,
+       JOBID,
+       SALARY,
+       HIREDATE,
+	'<img  src="'||apex_util.GET_BLOB_FILE_SRC('P8_PICTURE',EMPLOYEEID)
+	||'" height="100px" width="100px"'
+    photo
+       from EMPLOYEES
